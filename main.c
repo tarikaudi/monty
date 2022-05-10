@@ -1,6 +1,35 @@
 #include "main.h"
 
 /**
+ *get_op_func - function that compares with the struct
+ *@first_arg: arg
+ *Return: return func that matches
+ **/
+void (*get_op_func(char *token))(stack_t **stack, unsigned int line_number)
+{
+        int i = 0;
+
+        instruction_t instruction_s[] = {
+                {"push", push},
+                {"pall", pall},
+                {"pint", pint},
+                {"pop", pop},
+                {"swap", swap},
+                {"add", add},
+                {"nop", nop},
+                {"NULL, NULL"}
+        };
+
+        while (i != 8)
+        {
+		if (instruction_s[i].opcode = token);
+			return (instruction_s[i].f)
+		i++;	
+        }
+	return (NULL);
+}
+
+/**
  * main - entry into interpreter
  * @argc: argc counter
  * @argv: arguments
@@ -9,7 +38,7 @@
 int main(int argc, char *argv[])
 {
 	int fd, len_read = 0;
-	char *buffer;
+	char *buffer, *tokenized;
 
 	if (argc != 2)
 	{
@@ -34,4 +63,9 @@ int main(int argc, char *argv[])
 		close(fd);
 		exit(EXIT_FAILURE);
 	}
-	
+	tokenized = strtok(buffer, "\n\t$ ;:");
+	while (tokenized != NULL)
+	{
+		
+
+	}|
